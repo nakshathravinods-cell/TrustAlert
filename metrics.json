@@ -1,0 +1,115 @@
+{
+  "config": {
+    "horizon_hours": 6,
+    "seed": 42,
+    "max_patients": 3000,
+    "rf_max_rows": 300000
+  },
+  "data": {
+    "rows": 115867,
+    "patients": 3000,
+    "n_features": 108,
+    "row_positive_pct": 1.9228943530081903
+  },
+  "split": {
+    "train": {
+      "patients": 2084,
+      "rows": 67563,
+      "positive_rate": 0.012136820449062356
+    },
+    "validation": {
+      "patients": 447,
+      "rows": 15036,
+      "positive_rate": 0.011838254855014631
+    },
+    "test": {
+      "patients": 447,
+      "rows": 14432,
+      "positive_rate": 0.012264412416851441
+    }
+  },
+  "best_model": "Logistic Regression",
+  "test_metrics": {
+    "Logistic Regression": {
+      "threshold": 0.9518823795641931,
+      "roc_auc": 0.7252937318058685,
+      "pr_auc": 0.056737275234916465,
+      "accuracy": 0.9845482261640798,
+      "precision": 0.10344827586206896,
+      "recall_sensitivity": 0.03389830508474576,
+      "specificity": 0.9963521571378464,
+      "f1": 0.05106382978723404,
+      "brier": 0.16727655882683282,
+      "prevalence": 0.012264412416851441,
+      "tn": 14203.0,
+      "fp": 52.0,
+      "fn": 171.0,
+      "tp": 6.0
+    },
+    "Random Forest": {
+      "threshold": 0.33713614121464697,
+      "roc_auc": 0.8246712918650806,
+      "pr_auc": 0.11150650762402811,
+      "accuracy": 0.9732538802660754,
+      "precision": 0.14334470989761092,
+      "recall_sensitivity": 0.23728813559322035,
+      "specificity": 0.9823921431076815,
+      "f1": 0.17872340425531916,
+      "brier": 0.026221129857306902,
+      "prevalence": 0.012264412416851441,
+      "tn": 14004.0,
+      "fp": 251.0,
+      "fn": 135.0,
+      "tp": 42.0
+    },
+    "HistGradientBoosting": {
+      "threshold": 0.17235285656600569,
+      "roc_auc": 0.7592919126404255,
+      "pr_auc": 0.05696488668801187,
+      "accuracy": 0.9647311529933481,
+      "precision": 0.09313725490196079,
+      "recall_sensitivity": 0.21468926553672316,
+      "specificity": 0.9740441950192915,
+      "f1": 0.1299145299145299,
+      "brier": 0.015846745144517064,
+      "prevalence": 0.012264412416851441,
+      "tn": 13885.0,
+      "fp": 370.0,
+      "fn": 139.0,
+      "tp": 38.0
+    }
+  },
+  "alert_cfg": {
+    "thr_high": 0.9518823795641931,
+    "thr_mod": 0.1671522846873408,
+    "trend_rise": 0.13172311009460297,
+    "trend_rapid": 0.30750683367202325,
+    "rel_cut": 0.9333333333333333,
+    "cooldown": 6
+  },
+  "policy_comparison": {
+    "A: alert every high hour": {
+      "sepsis_patients": 32.0,
+      "caught_%": 21.875,
+      "median_lead_h": 38.0,
+      "alerts_per_100_patient_days": 9.313,
+      "healthy_alerted_%": 2.651
+    },
+    "B: SepsisGuard (episode + reliability)": {
+      "sepsis_patients": 32.0,
+      "caught_%": 21.875,
+      "median_lead_h": 38.0,
+      "alerts_per_100_patient_days": 4.989,
+      "healthy_alerted_%": 2.651
+    },
+    "C: persistence (2 of 3 h)": {
+      "sepsis_patients": 32.0,
+      "caught_%": 6.25,
+      "median_lead_h": 41.0,
+      "alerts_per_100_patient_days": 1.829,
+      "healthy_alerted_%": 1.446
+    }
+  },
+  "brier_raw": 0.16727655882683282,
+  "brier_calibrated": 0.01193862779833188
+}
