@@ -32,7 +32,7 @@ import streamlit.components.v1 as components
 
 import sepsisguard as sg
 
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "outputs")
+OUT = OUT = os.path.dirname(os.path.abspath(__file__))
 st.set_page_config(page_title="TrustAlert - Research Prototype", layout="wide")
 
 COLORS = {3: "#c0392b", 2: "#e67e22", 1: "#d4a017", 0: "#27ae60"}
